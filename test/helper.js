@@ -2,7 +2,7 @@
 
 // Globals for all test_*.js files. Add these to .eslintrc too.
 global.chai = require('chai');
-global.kss = require('../index.js');
+global.kss = require('kss');
 global.path = require('path');
 global.Promise = require('bluebird');
 global.expect = chai.expect;

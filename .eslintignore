@@ -2,12 +2,7 @@
 **/node_modules/**
 
 # Ignore any builder assets.
-builder/*/kss-assets/*.js
-
-# Ignore the demo pages.
-demo/**
-gh-pages/**
-styleguide/**
+builder/kss-assets/*.js
 
 # Ignore old test runs.
 test/output/**

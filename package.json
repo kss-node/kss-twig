@@ -1,22 +1,23 @@
 {
-  "name": "kss",
-  "version": "3.0.0-beta.16",
-  "description": "The Node.js port of KSS: A methodology for documenting CSS and building style guides",
+  "name": "kss-twig",
+  "version": "3.0.0-beta.17",
+  "description": "A Twig.js-based builder for KSS style guides",
   "homepage": "http://kss-node.github.io/kss-node",
   "bugs": {
     "url": "https://github.com/kss-node/kss-node/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/kss-node/kss-node.git"
+    "url": "git://github.com/kss-node/kss-twig.git"
   },
   "author": "John Albin Wilkins <virtually.johnalbin@gmail.com> (http://john.albin.net/)",
   "keywords": [
     "styleguide",
     "kss",
-    "kss-node"
+    "kss-node",
+    "kss-builder"
   ],
-  "main": "index.js",
+  "main": "builder/builder.js",
   "directories": {
     "bin": "bin",
     "example": "demo",
@@ -26,30 +27,21 @@
     "test": "istanbul cover _mocha",
     "posttest": "eslint bin/kss bin/kss-node .",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "docs": "make docs"
+    "sass": "./node_modules/.bin/node-sass --output-style compressed kss-assets/kss.scss kss-assets/kss.css"
   },
   "license": "(MIT OR GPL-2.0)",
   "dependencies": {
-    "bluebird": "^3.3.3",
-    "fs-extra": "^1.0.0",
-    "glob": "^7.0.3",
-    "handlebars": "^4.0.0",
-    "marked": "^0.3.6",
-    "twig": "^0.10.2",
-    "yargs": "^6.0.0"
+    "kss": "^3.0.0-beta.16",
+    "twig": "^1.10.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "eslint": "^3.0.0",
     "istanbul": "^0.4.3",
-    "jsdoc": "^3.4.0",
     "mocha": "^3.0.0",
-    "mock-utf8-stream": "^0.1.1"
-  },
-  "bin": {
-    "kss": "./bin/kss",
-    "kss-node": "./bin/kss-node"
+    "mock-utf8-stream": "^0.1.1",
+    "node-sass": "^4.0.0"
   },
   "engines": {
     "node": ">=4.0"

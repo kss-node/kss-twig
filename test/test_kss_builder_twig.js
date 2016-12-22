@@ -2,7 +2,7 @@
 
 'use strict';
 
-const cli = require('../lib/cli'),
+const cli = require('kss/lib/cli'),
   mockStream = require('mock-utf8-stream');
 
 describe('KssBuilderTwig builder', function() {
@@ -18,7 +18,7 @@ describe('KssBuilderTwig builder', function() {
     return cli({
       stdout: stdout,
       stderr: stderr,
-      argv: ['node', 'bin/kss', 'test/fixtures/with-include', 'test/output/twig', '--builder', 'builder/twig', '--title', 'KssBuilderTwig Test Style Guide', '--verbose']
+      argv: ['node', 'bin/kss', 'test/fixtures/with-include', 'test/output', '--builder', './', '--title', 'KssBuilderTwig Test Style Guide', '--verbose']
     }).then(() => {
       this.stdout = stdout.capturedData;
       return Promise.all(
@@ -28,7 +28,7 @@ describe('KssBuilderTwig builder', function() {
           'section-3',
           'section-4'
         ].map(fileName => {
-          return fs.readFileAsync(path.join(__dirname, 'output', 'twig', fileName + '.html'), 'utf8').then(data => {
+          return fs.readFileAsync(path.join(__dirname, 'output', fileName + '.html'), 'utf8').then(data => {
             this.files[fileName] = data;
           });
         })
@@ -36,7 +36,7 @@ describe('KssBuilderTwig builder', function() {
     });
   });
 
-  it('should build successfully', function() {
+  it.only('should build successfully', function() {
     [
       'index',
       'section-2',
